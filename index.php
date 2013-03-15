@@ -31,24 +31,27 @@
 
   </head>
   <body>
+
     <?php
       if(isset($_GET['building']))
       {
-        $building = $_GET['buildings'];
-        $extension = $_GET['extensions'];
-        $MAC = $_GET['MACs'];
-        $phoneModel = $_GET['phoneModels'];
-        $office = $_GET['offices'];
+        $building = $_GET['building'];
+        $extensions = $_GET['extensions'];
+        $MACs = $_GET['MACs'];
+        $phoneModels = $_GET['phoneModels'];
+        $offices = $_GET['offices'];
+        
         $seperator = "*EXPLODE*";
-        $extension = preg_replace('/\n/', $seperator, $extension);
-        $MAC = preg_replace('/\n/', $seperator, $MAC);
-        $phoneModel = preg_replace('/\n/', $seperator, $phoneModel);
-        $office = preg_replace('/\n/', $seperator, $office);
-        //Things are about to get dirty... <sigh>
-        //Get the different types of phones in an array
-        $rawExtensionArray = explode($seperator, $extension); //raw string to raw array
-        $rawMACArray = explode($seperator, $MAC); //raw string to raw array
-        $rawPhoneModelArray = explode($seperator, $phoneModel); //raw string to raw array
+        $extensions = preg_replace('/\n/', $seperator, $extensions);
+        $MACs = preg_replace('/\n/', $seperator, $MACs);
+        $phoneModels = preg_replace('/\n/', $seperator, $phoneModels);
+        $offices = preg_replace('/\n/', $seperator, $offices);
+        
+        $extensionArray = explode($seperator, $extensions);
+        $MACArray = explode($seperator, $MACs);
+        $phoneModelArray = explode($seperator, $phoneModels);
+        $officeArray = explode($seperator, $offices);
+        
         // ###### Clean and format the arrays #######
         function trim_value(&$value) 
         {
@@ -58,43 +61,78 @@
         {
           $value = strtoupper($value);
         }
-        array_walk($rawExtensionArray, 'trim_value');
-        array_walk($rawMACArray, 'trim_value');
-        array_walk($rawMACArray, 'upper_value');
-        array_walk($rawPhoneModelArray, 'trim_value');
+        array_walk($extensionArray, 'trim_value');
+        array_walk($MACArray, 'trim_value');
+        array_walk($MACArray, 'upper_value');
+        array_walk($phoneModelArray, 'trim_value');
+        array_walk($officeArray, 'trim_value');
         // ##########################################
-        $uniquePhoneModels = array_unique($rawPhoneModelArray);
+        
+        $uniquePhoneModels = array_unique($phoneModelArray);
+        
+        $extensions = "";
+        foreach ($extensionArray as &$value)
+        {
+          $extensions = $extensions . $value . "*EXPLODE*";
+        }
+        $extensions = substr($extensions, 0, -9);
+        unset($value); // break the reference with the last element
+        $MACs = "";
+        foreach ($MACArray as &$value)
+        {
+          $MACs = $MACs . $value . "*EXPLODE*";
+        }
+        $MACs = substr($MACs, 0, -9);
+        unset($value); // break the reference with the last element
+        $phoneModels = "";
+        foreach ($phoneModelArray as &$value)
+        {
+          $phoneModels = $phoneModels . $value . "*EXPLODE*";
+        }
+        $phoneModels = substr($phoneModels, 0, -9);
+        unset($value); // break the reference with the last element
+        $offices = "";
+        foreach ($officeArray as &$value)
+        {
+          $offices = $offices . $value . "*EXPLODE*";
+        }
+        $offices = substr($offices, 0, -9);
+        unset($value); // break the reference with the last element
       }
     ?>
+
     <div id="downloadsModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-header">
         <h3 id="downloadsModalLabel">Downloads</h3>
       </div>
       <div class="modal-body">
         <p>Get them while they're hot!</p>
-        <a href="bradford.php?<?php echo "building=" . $building . "&extension=" . $extension . "&MAC=" . $MAC . "&phoneModel=" . $phoneModel ?>" type="submit" class="btn btn-block btn-info">Download Bradford Host CSV</a>
-        <a href="evg.php?<?php echo "building=" . $building . "&extension=" . $extension . "&MAC=" . $MAC . "&phoneModel=" . $phoneModel ?>" type="submit" class="btn btn-block btn-info">Download EVG Script</a>
+        <a href="bradford.php?<?php echo "building=" . $building . "&extension=" . $extensions . "&MAC=" . $MACs . "&phoneModel=" . $phoneModels . "&office=" . $offices ?>" type="submit" class="btn btn-block btn-info">Download Bradford Host CSV</a>
+        <a href="evg.php?<?php echo "building=" . $building . "&extension=" . $extensions . "&MAC=" . $MACs . "&phoneModel=" . $phoneModels . "&office=" . $offices ?>" type="submit" class="btn btn-block btn-info">Download EVG Script</a>
     <?php
       function make_ucm_button(&$value)
       {
-        global $building, $rawExtensionArray, $rawMACArray, $rawPhoneModelArray, $office;
+        global $building, $extensionArray, $MACArray, $phoneModelArray, $officeArray;
         $ucmExtensions = "";
         $ucmMACs = "";
         $ucmPhoneModels = "";
-        $count =  count($rawPhoneModelArray);
+        $ucmOffices = "";
+        $count =  count($phoneModelArray);
         for ($i=0; $i<$count; $i++)
         {
-          if ($rawPhoneModelArray[$i] == $value)
+          if ($phoneModelArray[$i] == $value)
           {
-            $ucmExtensions = $ucmExtensions . $rawExtensionArray[$i] . "*EXPLODE*";
-            $ucmMACs = $ucmMACs . $rawMACArray[$i] . "*EXPLODE*";
-            $ucmPhoneModels = $ucmPhoneModels . $rawPhoneModelArray[$i] . "*EXPLODE*";
+            $ucmExtensions = $ucmExtensions . $extensionArray[$i] . "*EXPLODE*";
+            $ucmMACs = $ucmMACs . $MACArray[$i] . "*EXPLODE*";
+            $ucmPhoneModels = $ucmPhoneModels . $phoneModelArray[$i] . "*EXPLODE*";
+            $ucmOffices = $ucmOffices . $officeArray[$i] . "*EXPLODE*";
           }
         }
       $ucmExtensions = substr($ucmExtensions, 0, -9);
       $ucmMACs = substr($ucmMACs, 0, -9);
       $ucmPhoneModels = substr($ucmPhoneModels, 0, -9);
-      echo "<a href=\"ucm.php?building=$building&extension=$ucmExtensions&MAC=$ucmMACs&phoneModel=$ucmPhoneModels&office=$office\" type=\"submit\" class=\"btn btn-block btn-info\">Download Cisco $value UCM CSV</a>";
+      $ucmOffices = substr($ucmOffices, 0, -9);
+      echo "<a href=\"ucm.php?building=$building&extension=$ucmExtensions&MAC=$ucmMACs&phoneModel=$ucmPhoneModels&office=$ucmOffices\" type=\"submit\" class=\"btn btn-block btn-info\">Download Cisco $value UCM CSV</a>";
       echo "\n";
       // Reset the UCM variables
       $ucmExtensions = "";
@@ -108,6 +146,7 @@
         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
       </div>
     </div>
+
     <div class="container">
       <div class="navbar navbar-inverse">
         <div class="navbar-inner">
