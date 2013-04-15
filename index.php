@@ -109,6 +109,7 @@
         <p>Get them while they're hot!</p>
         <a href="bradford.php?<?php echo "building=" . $building . "&extensions=" . $extensions . "&MACs=" . $MACs . "&phoneModels=" . $phoneModels . "&offices=" . $offices ?>" type="submit" class="btn btn-block btn-info">Download Bradford Host CSV</a>
         <a href="evg.php?<?php echo "building=" . $building . "&extensions=" . $extensions . "&MACs=" . $MACs . "&phoneModels=" . $phoneModels . "&offices=" . $offices ?>" type="submit" class="btn btn-block btn-info">Download EVG Script</a>
+        <a href="hicom.php?<?php echo "building=" . $building . "&extensions=" . $extensions . "&MACs=" . $MACs . "&phoneModels=" . $phoneModels . "&offices=" . $offices ?>" type="submit" class="btn btn-block btn-info">Download Hicom Script</a>
     <?php
       function make_ucm_button(&$value)
       {
