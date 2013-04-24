@@ -32,7 +32,7 @@ echo "adap.mac,host.devType,host.topo,host.expireDate,host.hwType,host.host,host
 $count = count($phoneModels);
 for ($i=0; $i<$count; $i++)
 {
-  echo $MACs[$i] . ",IP Phone,,,IP Phone - " . $phoneModels[$i] . ",SEP" . $MACs[$i] . ",,,NAC-Default," . $MACs[$i]  . "\n";
+  echo $MACs[$i] . ",IP Phone,,,IP Phone - " . $phoneModels[$i] . ",SEP" . $MACs[$i] . ",99999 Days,,NAC-Default," . $MACs[$i]  . "\n";
 }
 
 header("Connection: close");
