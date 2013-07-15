@@ -107,9 +107,9 @@
       </div>
       <div class="modal-body">
         <p>Get them while they're hot!</p>
-        <a href="bradford.php?<?php echo "building=" . $building . "&extensions=" . $extensions . "&MACs=" . $MACs . "&phoneModels=" . $phoneModels . "&offices=" . $offices ?>" type="submit" class="btn btn-block btn-info">Download Bradford Host CSV</a>
-        <a href="evg.php?<?php echo "building=" . $building . "&extensions=" . $extensions . "&MACs=" . $MACs . "&phoneModels=" . $phoneModels . "&offices=" . $offices ?>" type="submit" class="btn btn-block btn-info">Download EVG Script</a>
-        <a href="hicom.php?<?php echo "building=" . $building . "&extensions=" . $extensions . "&MACs=" . $MACs . "&phoneModels=" . $phoneModels . "&offices=" . $offices ?>" type="submit" class="btn btn-block btn-info">Download Hicom Script</a>
+        <a href="bradford.php?<?php echo "building=" . $building . "&extensions=" . $extensions . "&MACs=" . $MACs . "&phoneModels=" . $phoneModels . "&offices=" . $offices ?>" type="submit" class="btn btn-block btn-info">Bradford Host CSV</a>
+        <a href="evg.php?<?php echo "building=" . $building . "&extensions=" . $extensions . "&MACs=" . $MACs . "&phoneModels=" . $phoneModels . "&offices=" . $offices ?>" type="submit" class="btn btn-block btn-info">EVG Script</a>
+        <a href="hicom.php?<?php echo "building=" . $building . "&extensions=" . $extensions . "&MACs=" . $MACs . "&phoneModels=" . $phoneModels . "&offices=" . $offices ?>" type="submit" class="btn btn-block btn-info">Hicom Script</a>
     <?php
       function make_ucm_button(&$value)
       {
@@ -133,8 +133,11 @@
       $ucmMACs = substr($ucmMACs, 0, -9);
       $ucmPhoneModels = substr($ucmPhoneModels, 0, -9);
       $ucmOffices = substr($ucmOffices, 0, -9);
-      echo "<a href=\"ucm.php?building=$building&extensions=$ucmExtensions&MACs=$ucmMACs&phoneModels=$ucmPhoneModels&offices=$ucmOffices\" type=\"submit\" class=\"btn btn-block btn-info\">Download Cisco $value UCM CSV</a>";
+      echo "<div style=\"margin-left: 0px;\" class=\"btn-group btn-block\">";
+      echo "<a style=\"width: 240px;\" href=\"ucm.php?building=$building&extensions=$ucmExtensions&MACs=$ucmMACs&phoneModels=$ucmPhoneModels&offices=$ucmOffices&css=AllPhones\" type=\"submit\" class=\"btn btn-info\">Cisco $value UCM CSV</a>";
+      echo "<a style=\"width: 240px;\" href=\"ucm.php?building=$building&extensions=$ucmExtensions&MACs=$ucmMACs&phoneModels=$ucmPhoneModels&offices=$ucmOffices&css=The_Workbench\" type=\"submit\" class=\"btn btn-info\">Cisco $value Setup UCM CSV</a>";
       echo "\n";
+      echo "</div>";
       // Reset the UCM variables
       $ucmExtensions = "";
       $ucmMACs = "";

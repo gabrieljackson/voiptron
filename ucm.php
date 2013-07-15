@@ -11,6 +11,7 @@ $phoneModels = $_GET['phoneModels'];
 $MACs = $_GET['MACs'];
 $extensions = $_GET['extensions'];
 $offices = $_GET['offices'];
+$css = $_GET['css'];
 
 $seperator = "*EXPLODE*";
 
@@ -32,7 +33,7 @@ echo "MAC ADDRESS,DESCRIPTION,DIRECTORY NUMBER  1,ROUTE PARTITION  1,LINE DESCRI
 $count = count($phoneModels);
 for ($i=0; $i<$count; $i++)
 {
-  echo $MACs[$i] . ",DESCRIPTION," . $extensions[$i] . ",AllPhones,LINE DESCRIPTION," .  $offices[$i] . "," .  $offices[$i] . "," .  $offices[$i] . "," .  $offices[$i] . "\n";
+  echo $MACs[$i] . ",DESCRIPTION," . $extensions[$i] . "," . $css . ",LINE DESCRIPTION," .  $offices[$i] . "," .  $offices[$i] . "," .  $offices[$i] . "," .  $offices[$i] . "\n";
 }
 
 header("Connection: close");
