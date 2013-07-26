@@ -77,6 +77,7 @@
         }
         array_walk($offices, 'add_building');
 
+        $warning = "";
         $CDPcount = count($CDP);
         for ($i=0; $i<$CDPcount; $i++)
         {
@@ -92,14 +93,42 @@
   	  	        echo "interface " . $curCDPInt . "</br>";
     	        echo "desc " . $offices[$ii] . "</br>";
 		        echo "!" . "</br>";
+		        $foundMAC = 1;
               } 	
             }
+            if ($foundMAC != 1)
+            {
+              if ($warning == "")
+              {
+                $warning = $curCDPMAC;
+              }
+              else
+              {
+                $warning = $warning . "</br>" . $curCDPMAC;
+              }
+            }
+            unset($foundMAC);
           }
         }
       }
-    ?></pre>
-      </div>
-      <div class="modal-footer">
+      echo "</pre>";
+      echo "</div>";
+      echo "<div class=\"modal-footer\">";
+      if ($warning == "")
+      {
+        echo "<div class=\"alert alert-success\" style=\"text-align: left;\">";
+        echo "<strong>Success!</strong> All CDP MAC addresses matched.";
+        echo "</div>";
+      }
+      else
+      {
+        echo "<div class=\"alert alert-error\" style=\"text-align: left;\">";
+        echo "<strong>Warning!</strong> No office match found on the following CDP MAC addresses.";
+        echo "</br></br>";
+        echo $warning;
+        echo "</div>";
+      }
+      ?>
         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
       </div>
     </div>
