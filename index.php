@@ -154,8 +154,14 @@
     <div class="container">
       <div class="navbar navbar-inverse">
         <div class="navbar-inner">
-          <a class="brand" href="#">VoIP Tron</a>
+          <a class="brand" style="float: right;" href="#">VoIP Tron</a>
           <ul class="nav">
+              <li class="active">
+                <a href="./index.php">Deploy Phones</a>
+              </li>
+              <li class="">
+                <a href="./interface-description-builder.php">Interface Description Builder</a>
+              </li>
           </ul>
         </div>
       </div>
