@@ -38,8 +38,7 @@
         <h3 id="downloadsModalLabel">Interface Description Script</h3>
       </div>
       <div class="modal-body">
-
-    <?php
+        <pre><?php
       if(isset($_GET['building']))
       {
         $building = $_GET['building'];
@@ -98,7 +97,7 @@
           }
         }
       }
-    ?>
+    ?></pre>
       </div>
       <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
