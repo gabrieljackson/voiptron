@@ -101,9 +101,11 @@
       }
     ?>
 
-    <div id="downloadsModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="downloadsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
       <div class="modal-header">
-        <h3 id="downloadsModalLabel">Downloads</h3>
+        <h3 class="modal-title">Downloads</h3>
       </div>
       <div class="modal-body">
         <p>Get them while they're hot!</p>
@@ -134,8 +136,8 @@
       $ucmPhoneModels = substr($ucmPhoneModels, 0, -9);
       $ucmOffices = substr($ucmOffices, 0, -9);
       echo "<div style=\"margin-left: 0px;\" class=\"btn-group btn-block\">";
-      echo "<a style=\"width: 240px;\" href=\"ucm.php?building=$building&extensions=$ucmExtensions&MACs=$ucmMACs&phoneModels=$ucmPhoneModels&offices=$ucmOffices&css=AllPhones\" type=\"submit\" class=\"btn btn-info\">Cisco $value UCM CSV</a>";
-      echo "<a style=\"width: 240px;\" href=\"ucm.php?building=$building&extensions=$ucmExtensions&MACs=$ucmMACs&phoneModels=$ucmPhoneModels&offices=$ucmOffices&css=The_Workbench\" type=\"submit\" class=\"btn btn-info\">Cisco $value Setup UCM CSV</a>";
+      echo "<a style=\"width: 50%;\" href=\"ucm.php?building=$building&extensions=$ucmExtensions&MACs=$ucmMACs&phoneModels=$ucmPhoneModels&offices=$ucmOffices&css=AllPhones\" type=\"submit\" class=\"btn btn-info\">Cisco $value UCM CSV</a>";
+      echo "<a style=\"width: 50%;\" href=\"ucm.php?building=$building&extensions=$ucmExtensions&MACs=$ucmMACs&phoneModels=$ucmPhoneModels&offices=$ucmOffices&css=The_Workbench\" type=\"submit\" class=\"btn btn-info\">Cisco $value Setup UCM CSV</a>";
       echo "\n";
       echo "</div>";
       // Reset the UCM variables
@@ -149,7 +151,9 @@
       <div class="modal-footer">
         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
       </div>
-    </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
     <div class="container">
       <nav class="navbar navbar-default">
