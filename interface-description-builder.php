@@ -149,11 +149,11 @@
       </div>
       <form action='interface-description-builder.php' method='GET'>
         <fieldset>
-          <input name="building" class="input-block-level" type="text" placeholder="Building">
+          <input name="building" class="form-control" type="text" placeholder="Building">
           <div class="row">
-            <div class="col-md-2"><textarea name="offices" class="input-block-level" rows="25" placeholder="Offices/Locations"></textarea></div>
-            <div class="col-md-2"><textarea name="MACs" class="input-block-level" rows="25" placeholder="MAC Addresses"></textarea></div>
-            <div class="col-md-8"><textarea name="CDP" class="input-block-level" rows="25" placeholder="CDP Output"></textarea></div>
+            <div class="col-md-2"><textarea name="offices" class="form-control" rows="25" placeholder="Offices/Locations"></textarea></div>
+            <div class="col-md-2"><textarea name="MACs" class="form-control" rows="25" placeholder="MAC Addresses"></textarea></div>
+            <div class="col-md-8"><textarea name="CDP" class="form-control" rows="25" placeholder="CDP Output"></textarea></div>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </fieldset>
