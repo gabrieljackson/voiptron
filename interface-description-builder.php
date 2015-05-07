@@ -149,13 +149,17 @@
       </div>
       <form action='interface-description-builder.php' method='GET'>
         <fieldset>
-          <input name="building" class="form-control" type="text" placeholder="Building">
-          <div class="row">
-            <div class="col-md-2"><textarea name="offices" class="form-control" rows="25" placeholder="Offices/Locations"></textarea></div>
-            <div class="col-md-2"><textarea name="MACs" class="form-control" rows="25" placeholder="MAC Addresses"></textarea></div>
-            <div class="col-md-8"><textarea name="CDP" class="form-control" rows="25" placeholder="CDP Output"></textarea></div>
+          <div class="form-group">
+            <input name="building" class="form-control" type="text" placeholder="Building">
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <div class="row">
+            <div class="col-md-2"><div class="form-group"><textarea name="offices" class="form-control" rows="25" placeholder="Offices/Locations"></textarea></div></div>
+            <div class="col-md-2"><div class="form-group"><textarea name="MACs" class="form-control" rows="25" placeholder="MAC Addresses"></textarea></div></div>
+            <div class="col-md-8"><div class="form-group"><textarea name="CDP" class="form-control" rows="25" placeholder="CDP Output"></textarea></div></div>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
         </fieldset>
       </form>
     </div>
