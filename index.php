@@ -167,14 +167,18 @@
       </div>
       <form action='index.php' method='GET'>
         <fieldset>
-          <input name="building" class="form-control" type="text" placeholder="Building">
-          <div class="row">
-            <div class="col-md-3"><textarea name="extensions" class="form-control" rows="25" placeholder="Extensions"></textarea></div>
-            <div class="col-md-3"><textarea name="phoneModels" class="form-control" rows="25" placeholder="Phone Models"></textarea></div>
-            <div class="col-md-3"><textarea name="MACs" class="form-control" rows="25" placeholder="MAC Addresses"></textarea></div>
-            <div class="col-md-3"><textarea name="offices" class="form-control" rows="25" placeholder="Offices/Locations"></textarea></div>
+          <div class="form-group">
+            <input name="building" class="form-control" type="text" placeholder="Building">
           </div>
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <div class="row">
+            <div class="col-md-3"><div class="form-group"><textarea name="extensions" class="form-control" rows="25" placeholder="Extensions"></textarea></div></div>
+            <div class="col-md-3"><div class="form-group"><textarea name="phoneModels" class="form-control" rows="25" placeholder="Phone Models"></textarea></div></div>
+            <div class="col-md-3"><div class="form-group"><textarea name="MACs" class="form-control" rows="25" placeholder="MAC Addresses"></textarea></div></div>
+            <div class="col-md-3"><div class="form-group"><textarea name="offices" class="form-control" rows="25" placeholder="Offices/Locations"></textarea></div></div>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
         </fieldset>
       </form>
     </div>
