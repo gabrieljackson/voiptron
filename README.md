@@ -1,6 +1,6 @@
 VoIP Tron!
 
-Version: 0.4
+Version: 0.5
 
 
 --- Description ---
@@ -11,7 +11,7 @@ VoIP Tron is a web-based data formatter used to create various VoIP-setup relate
 --- Installation ---
 
 1. Place files on a web server running PHP.
-2. Download Bootstrap 2.3.2 from http://getbootstrap.com/2.3.2/ and unpack it to the root VoIP Tron directory.
+2. Download Bootstrap 3.3.4 from https://github.com/twbs/bootstrap/releases/download/v3.3.4/bootstrap-3.3.4-dist.zip and unpack it to the root VoIP Tron directory.
 3. Create voice.xml file in VOIPTRONROOT/config/voice.xml
 4. Go to index.php in a respectable web browser.
 5. ???
