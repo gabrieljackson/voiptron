@@ -33,12 +33,15 @@
   <body>
 
 
-    <div id="downloadsModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div id="downloadsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
       <div class="modal-header">
-        <h3 id="downloadsModalLabel">Interface Description Script</h3>
+        <h3 class="modal-title">Interface Description Script</h3>
       </div>
       <div class="modal-body">
-        <pre><?php
+        <pre>
+      <?php
       if(isset($_GET['building']))
       {
         $building = $_GET['building'];
@@ -131,7 +134,9 @@
       ?>
         <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
       </div>
-    </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
     <div class="container">
       <nav class="navbar navbar-default">
