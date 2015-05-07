@@ -151,9 +151,9 @@
         <fieldset>
           <input name="building" class="input-block-level" type="text" placeholder="Building">
           <div class="row">
-            <div class="span2"><textarea name="offices" class="input-block-level" rows="25" placeholder="Offices/Locations"></textarea></div>
-            <div class="span2"><textarea name="MACs" class="input-block-level" rows="25" placeholder="MAC Addresses"></textarea></div>
-            <div class="span8"><textarea name="CDP" class="input-block-level" rows="25" placeholder="CDP Output"></textarea></div>
+            <div class="col-md-2"><textarea name="offices" class="input-block-level" rows="25" placeholder="Offices/Locations"></textarea></div>
+            <div class="col-md-2"><textarea name="MACs" class="input-block-level" rows="25" placeholder="MAC Addresses"></textarea></div>
+            <div class="col-md-8"><textarea name="CDP" class="input-block-level" rows="25" placeholder="CDP Output"></textarea></div>
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
         </fieldset>
